@@ -1,0 +1,8 @@
+/out
+/.idea
+/.project
+/.classpath
+/target
+*.iml
+*.swp
+
