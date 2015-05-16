@@ -3,7 +3,6 @@ package books.pages
 import data.Data
 import geb.Page
 
-
 class ListPage extends Page {
     static url = "book/index"
 
@@ -23,11 +22,11 @@ class ListPage extends Page {
         }
 
         btitle { int i ->
-            row[i].find('td', 0).text()
+            row(i).find('td', 1).text()
         }
 
         author { int i ->
-            row[i].find('td', 1).text()
+            row(i).find('td', 0).text()
         }
     }
 
@@ -41,5 +40,4 @@ class ListPage extends Page {
         assert book.author == author(row)
         assert book.title == btitle(row)
     }
-
 }
