@@ -17,7 +17,7 @@ class ListPage extends Page {
             $('table tbody')
         }
 
-        row { i ->
+        row { int i ->
             list.find('tr', i)
         }
 

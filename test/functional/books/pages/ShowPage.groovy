@@ -9,11 +9,11 @@ class ShowPage extends Page {
     }
 
     static content = {
-        row { val ->
+        row { String val ->
             $('span.property-label', text: val).parent()
         }
 
-        value { val ->
+        value { String val ->
             row(val).find('span.property-value').text()
         }
 
