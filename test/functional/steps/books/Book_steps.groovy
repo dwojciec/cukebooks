@@ -1,10 +1,8 @@
-import books.Book
+package steps.books
+
 import books.pages.ListPage
 import books.pages.NewPage
 import books.pages.ShowPage
-import cucumber.api.PendingException
-import data.Data
-import grails.plugin.remotecontrol.RemoteControl
 
 this.metaClass.mixin(cucumber.api.groovy.Hooks)
 this.metaClass.mixin(cucumber.api.groovy.EN)
