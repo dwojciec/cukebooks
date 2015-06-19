@@ -1,3 +1,5 @@
+package steps.books
+
 import geb.binding.BindingUpdater
 import geb.Browser
 
