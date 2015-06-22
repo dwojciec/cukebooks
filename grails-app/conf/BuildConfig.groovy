@@ -75,7 +75,7 @@ grails.project.dependency.resolution = {
 
         test ":geb:$gebVersion"
         test ":cucumber:1.1.0"
-        test ":remote-control:1.5"
+        test ":remote-control:2.0"
 
         // Uncomment these to enable additional asset-pipeline capabilities
         //compile ":sass-asset-pipeline:1.9.0"
