@@ -22,7 +22,7 @@ grails.project.fork = [
 ]
 
 def gebVersion = "0.10.0"
-def seleniumVersion = "2.44.0"
+def seleniumVersion = "2.46.0"
 
 grails.project.dependency.resolver = "maven" // or ivy
 grails.project.dependency.resolution = {
