@@ -74,7 +74,7 @@ grails.project.dependency.resolution = {
         runtime ":jquery:1.11.1"
 
         test ":geb:$gebVersion"
-        test ":cucumber:1.1.0"
+        test ":cucumber:1.2.0"
         test ":remote-control:2.0"
 
         // Uncomment these to enable additional asset-pipeline capabilities
