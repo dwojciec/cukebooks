@@ -43,6 +43,7 @@ grails.project.dependency.resolution = {
         mavenLocal()
         grailsCentral()
         mavenCentral()
+        mavenRepo "http://repository-saucelabs.forge.cloudbees.com/release"
         // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
@@ -57,6 +58,7 @@ grails.project.dependency.resolution = {
         test "org.gebish:geb-junit4:$gebVersion"
         test ("org.seleniumhq.selenium:selenium-chrome-driver:$seleniumVersion")
         test ("org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion")
+        test "com.saucelabs:saucerest:1.0.27"
     }
 
     plugins {
@@ -76,6 +78,7 @@ grails.project.dependency.resolution = {
         test ":geb:$gebVersion"
         test ":cucumber:1.2.0"
         test ":remote-control:2.0"
+        test ":geb-saucelabs:0.3"
 
         // Uncomment these to enable additional asset-pipeline capabilities
         //compile ":sass-asset-pipeline:1.9.0"
