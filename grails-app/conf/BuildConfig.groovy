@@ -87,3 +87,7 @@ grails.project.dependency.resolution = {
         //compile ":handlebars-asset-pipeline:1.3.0.3"
     }
 }
+
+grails.plugin.'geb-saucelabs'.useSauceConnect = true
+
+
