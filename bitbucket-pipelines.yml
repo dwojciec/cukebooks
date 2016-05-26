@@ -1,4 +1,5 @@
-image: java:8
+#image: java:8
+image: selenium/standalone-firefox:2.46.0
 
 pipelines:
   default:
