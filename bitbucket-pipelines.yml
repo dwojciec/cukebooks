@@ -1,8 +1,8 @@
 #image: java:8
-image: selenium/standalone-firefox:2.53.0
+#image: selenium/standalone-firefox:2.53.0
 
 pipelines:
   default:
     - step:
         script:
-          - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 ./grailsw test-app
+          - ./grailsw test-app
