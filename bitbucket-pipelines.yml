@@ -5,4 +5,4 @@ pipelines:
   default:
     - step:
         script:
-          - JAVA_HOME=/usr/lib/jvm/java-8-oracle ./grailsw test-app
+          - JAVA_HOME=/usr/lib/jvm/java-8-oracle ./grailsw test-app unit: integration:
