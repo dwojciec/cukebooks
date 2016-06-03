@@ -1,5 +1,6 @@
 #image: java:8
 #image: selenium/standalone-firefox:2.53.0
+image: pdouble16/openshift-s2i-grails2
 
 pipelines:
   default:

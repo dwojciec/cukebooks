@@ -57,6 +57,9 @@ grails.project.dependency.resolution = {
         test "org.gebish:geb-junit4:$gebVersion"
         test ("org.seleniumhq.selenium:selenium-chrome-driver:$seleniumVersion")
         test ("org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion")
+        test ("com.codeborne:phantomjsdriver:1.2.1") {
+            transitive = false
+        }
     }
 
     plugins {
