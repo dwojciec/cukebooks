@@ -1,4 +1,4 @@
-image: pdouble16/bitbucket-pipeline-browsers
+image: pdouble16/bitbucket-pipeline-browsers:1.0
 
 pipelines:
   default:
