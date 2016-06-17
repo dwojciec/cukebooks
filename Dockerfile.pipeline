@@ -1,0 +1,11 @@
+FROM pdouble16/bitbucket-pipeline-browsers:latest
+MAINTAINER "Patrick Double <pat@patdouble.com>"
+
+RUN mkdir /src
+WORKDIR /src
+ADD . /src/
+
+#ENTRYPOINT ["./grailsw"]
+#CMD ["test-app"]
+
+
