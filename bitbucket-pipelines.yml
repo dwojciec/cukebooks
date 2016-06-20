@@ -4,4 +4,5 @@ pipelines:
   default:
     - step:
         script:
-          - ./grailsw test-app
+          - ./grailsw -Dgeb.env=phantomjs test-app
+          - ./grailsw -Dgeb.env=firefox test-app

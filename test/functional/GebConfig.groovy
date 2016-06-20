@@ -33,12 +33,12 @@ if (!System.getProperty(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERT
     }
 }
 
-if (System.getProperty(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY)) {
-    driver = {
-        postProcessDriver.call(new PhantomJSDriver(new DesiredCapabilities()))
-    }
-} else {
-    driver = {
-        postProcessDriver.call(new FirefoxDriver())
-    }
+environments {
+  phantomjs {
+    driver = { postProcessDriver.call(new PhantomJSDriver(new DesiredCapabilities())) }
+  }
+  firefox {
+    driver = { postProcessDriver.call(new FirefoxDriver()) }
+  }
 }
+
