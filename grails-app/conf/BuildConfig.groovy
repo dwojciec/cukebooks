@@ -60,6 +60,9 @@ grails.project.dependency.resolution = {
         test ("com.codeborne:phantomjsdriver:1.2.1") {
             transitive = false
         }
+        test ("io.github.bonigarcia:webdrivermanager:1.4.5") {
+            exclude group: 'org.seleniumhq.selenium'
+        }
     }
 
     plugins {

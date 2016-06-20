@@ -6,3 +6,4 @@ pipelines:
         script:
           - ./grailsw -Dgeb.env=phantomjs test-app
           - ./grailsw -Dgeb.env=firefox test-app
+          - ./grailsw -Dgeb.env=chrome test-app

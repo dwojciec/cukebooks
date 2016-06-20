@@ -4,6 +4,8 @@ import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.phantomjs.PhantomJSDriver
 import org.openqa.selenium.phantomjs.PhantomJSDriverService
 import org.openqa.selenium.remote.DesiredCapabilities
+import io.github.bonigarcia.wdm.ChromeDriverManager
+import org.openqa.selenium.chrome.ChromeDriver
 
 import java.util.regex.Pattern
 
@@ -39,6 +41,10 @@ environments {
   }
   firefox {
     driver = { postProcessDriver.call(new FirefoxDriver()) }
+  }
+  chrome {
+    ChromeDriverManager.getInstance().setup()
+    driver = { new ChromeDriver() }
   }
 }
 
