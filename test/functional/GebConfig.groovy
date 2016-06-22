@@ -43,8 +43,10 @@ environments {
     driver = { postProcessDriver.call(new FirefoxDriver()) }
   }
   chrome {
-    ChromeDriverManager.getInstance().setup()
-    driver = { new ChromeDriver() }
+    driver = {
+      ChromeDriverManager.getInstance().setup()
+      new ChromeDriver()
+    }
   }
 }
 
