@@ -45,7 +45,7 @@ environments {
   chrome {
     driver = {
       ChromeDriverManager.getInstance().setup()
-      new ChromeDriver()
+      postProcessDriver.call(new ChromeDriver())
     }
   }
 }
