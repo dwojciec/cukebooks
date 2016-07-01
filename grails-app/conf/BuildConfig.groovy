@@ -22,7 +22,7 @@ grails.project.fork = [
 ]
 
 def gebVersion = "0.10.0"
-def seleniumVersion = "2.53.0"
+def seleniumVersion = "2.53.1"
 
 grails.project.dependency.resolver = "maven" // or ivy
 grails.project.dependency.resolution = {
@@ -65,7 +65,7 @@ grails.project.dependency.resolution = {
         test ("com.codeborne:phantomjsdriver:1.2.1") {
             transitive = false
         }
-        test ("io.github.bonigarcia:webdrivermanager:1.4.5") {
+        test ("io.github.bonigarcia:webdrivermanager:1.4.6") {
             exclude group: 'org.seleniumhq.selenium'
         }
     }

@@ -5,6 +5,7 @@ import org.openqa.selenium.phantomjs.PhantomJSDriver
 import org.openqa.selenium.phantomjs.PhantomJSDriverService
 import org.openqa.selenium.remote.DesiredCapabilities
 import io.github.bonigarcia.wdm.ChromeDriverManager
+import io.github.bonigarcia.wdm.MarionetteDriverManager
 import org.openqa.selenium.chrome.ChromeDriver
 
 import java.util.regex.Pattern
@@ -40,7 +41,12 @@ environments {
     driver = { postProcessDriver.call(new PhantomJSDriver(new DesiredCapabilities())) }
   }
   firefox {
-    driver = { postProcessDriver.call(new FirefoxDriver()) }
+    driver = {
+      MarionetteDriverManager.getInstance().setup()
+      DesiredCapabilities capabilities = DesiredCapabilities.firefox()
+      capabilities.setCapability("marionette", true)
+      postProcessDriver.call(new FirefoxDriver(capabilities))
+   }
   }
   chrome {
     driver = {
