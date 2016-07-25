@@ -3,5 +3,5 @@ machine:
     version: openjdk8
 test:
   override:
-    - ./grailsw test-app
+    - ./grailsw -Dgrails.project.test.reports.dir=$CIRCLE_TEST_REPORTS test-app
 
