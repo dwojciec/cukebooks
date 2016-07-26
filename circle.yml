@@ -3,6 +3,8 @@ machine:
     version: openjdk8
 
 dependencies:
+  pre:
+    - ./grailsw refresh-dependencies
   cache_directories:
     - "~/.grails"
 
