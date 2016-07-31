@@ -1,6 +1,8 @@
 machine:
   java:
     version: openjdk8
+  environment:
+    TERM: dumb
 
 dependencies:
   pre:
@@ -9,6 +11,10 @@ dependencies:
     - "~/.grails"
 
 test:
+  pre:
+    - mkdir -p $CIRCLE_TEST_REPORTS/phantomjs $CIRCLE_TEST_REPORTS/chrome $CIRCLE_TEST_REPORTS/firefox
   override:
-    - ./grailsw -Dgrails.project.test.reports.dir=$CIRCLE_TEST_REPORTS test-app
+    - ./grailsw -Dgeb.env=chrome -Dgrails.project.test.reports.dir=$CIRCLE_TEST_REPORTS/chrome test-app
+    - ./grailsw -Dgeb.env=firefox -Dgrails.project.test.reports.dir=$CIRCLE_TEST_REPORTS/firefox test-app
+    - ./grailsw -Dgeb.env=phantomjs -Dgrails.project.test.reports.dir=$CIRCLE_TEST_REPORTS/phantomjs test-app
 
