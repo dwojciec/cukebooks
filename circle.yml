@@ -19,7 +19,7 @@ dependencies:
   cache_directories:
     - "~/.grails"
     - "~/.bin"
-    - "/opt/firefox-${FIREFOX_VERSION}"
+    - "/opt/firefox-46.0.1"
 
 test:
   pre:
