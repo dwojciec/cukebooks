@@ -24,6 +24,6 @@ dependencies:
 
 test:
   override:
-    - case $CIRCLE_NODE_INDEX in 0) BROWSER=chrome ;; 1) BROWSER=firefox ;; 2) BROWSER=phantomjs ;; esac ; mkdir -p ./grailsw $CIRCLE_TEST_REPORTS/$BROWSER -Dgeb.env=$BROWSER -Dgrails.project.test.reports.dir=$CIRCLE_TEST_REPORTS/$BROWSER test-app :
+    - case $CIRCLE_NODE_INDEX in 0) BROWSER=chrome ;; 1) BROWSER=firefox ;; 2) BROWSER=phantomjs ;; esac ; mkdir -p $CIRCLE_TEST_REPORTS/$BROWSER ; ./grailsw -Dgeb.env=$BROWSER -Dgrails.project.test.reports.dir=$CIRCLE_TEST_REPORTS/$BROWSER test-app :
         parallel: true
 
