@@ -1,5 +1,8 @@
 #!groovy
 
+// Requires script approval:
+//   method java.util.Collection addAll java.util.Collection
+
 node {
   stage 'Build and Unit Test'
   checkout scm
