@@ -8,7 +8,7 @@ node {
   checkout scm
   withJavaEnv {
     sh "./grailsw test-app unit: integration:"
-    step $class: 'JUnitResultArchiver', testResults: '**/TEST-*.xml'
+    step $class: 'JUnitResultArchiver', testResults: '**/TEST*.xml'
     sh "./grailsw war"
   }
 
