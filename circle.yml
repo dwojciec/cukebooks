@@ -3,12 +3,22 @@ machine:
     version: openjdk8
   environment:
     TERM: dumb
+    FIREFOX_VERSION: 46.0.1
+    PHANTOMJS_VERSION: 2.1.1
+    CHROME_VERSION: stable_current
+    DBUS_SESSION_BUS_ADDRESS: /dev/null
+    SCREEN_WIDTH: 1360
+    SCREEN_HEIGHT: 1020
+    SCREEN_DEPTH: 24
+    PATH: ~/.bin:$PATH
 
 dependencies:
   pre:
     - ./grailsw refresh-dependencies
+    - sudo ./install-browsers.sh
   cache_directories:
     - "~/.grails"
+    - "~/.bin"
 
 test:
   pre:
