@@ -20,6 +20,7 @@ dependencies:
     - "~/.grails"
     - "~/.bin"
     - "/opt/firefox-46.0.1"
+    - "/opt/google"
 
 test:
   pre:
