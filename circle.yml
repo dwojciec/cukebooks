@@ -15,7 +15,7 @@ machine:
 dependencies:
   pre:
     - ./grailsw refresh-dependencies
-    - sudo ./install-browsers.sh
+    - sudo bash -x ./install-browsers.sh
   cache_directories:
     - "~/.grails"
     - "~/.bin"
