@@ -15,10 +15,11 @@ machine:
 dependencies:
   pre:
     - ./grailsw refresh-dependencies
-    - sudo bash -x ./install-browsers.sh
+    - sudo -E bash -x ./install-browsers.sh
   cache_directories:
     - "~/.grails"
     - "~/.bin"
+    - "/opt/firefox-${FIREFOX_VERSION}"
 
 test:
   pre:
