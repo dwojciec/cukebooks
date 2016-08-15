@@ -13,14 +13,24 @@ node {
   }
 
   stage 'Functional Test'
+  stash name: 'test_sources'
   parallel 'phantomjs': {
-    node { withJavaEnv { sh "./grailsw -Dgeb.env=phantomjs test-app" } }
+    node {
+      unstash name: 'test_sources'
+      withJavaEnv { sh "./grailsw -Dgeb.env=phantomjs test-app" }
+    }
   },
   'chrome': {
-    node { withJavaEnv { sh "./grailsw -Dgeb.env=chrome test-app" } }
+    node {
+      unstash name: 'test_sources'
+      withJavaEnv { sh "./grailsw -Dgeb.env=chrome test-app" }
+    }
   },
   'firefox': {
-    node { withJavaEnv { sh "./grailsw -Dgeb.env=firefox test-app" } }
+    node {
+      unstash name: 'test_sources'
+      withJavaEnv { sh "./grailsw -Dgeb.env=firefox test-app" }
+    }
   }
 
   //only deploy when on master branch
