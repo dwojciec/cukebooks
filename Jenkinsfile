@@ -8,6 +8,7 @@
 node {
   stage 'Build and Unit Test'
   checkout scm
+  stash name: 'test_sources'
   withJavaEnv {
     sh "./grailsw test-app unit: integration:"
     //step $class: 'JUnitResultArchiver', testResults: '**/test-reports/**/TEST*.xml'
@@ -15,7 +16,6 @@ node {
   }
 
   stage 'Functional Test'
-  stash name: 'test_sources'
   parallel 'chrome': {
     node {
       unstash name: 'test_sources'
