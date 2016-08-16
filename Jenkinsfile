@@ -16,17 +16,17 @@ node {
   }
 
   stage 'Functional Test'
-  def host = InetAddress.localHost.hostName
+  def host = 'jenkins'//InetAddress.localHost.hostName
   parallel 'chrome': {
     node {
       unstash name: 'test_sources'
-      withJavaEnv { sh "./grailsw -noreloading -Ddisable.auto.recompile=true -Dgrails.server.host=${host} -Dgrails.server.port=8080 -Dgeb.env=remote -Dgeb.url=http://hub:4444/wd/hub -Dgeb.browser=browserName=chrome test-app functional: -baseUrl=http://${host}:8080/CukeBooks" }
+      withJavaEnv { sh "./grailsw -noreloading -Ddisable.auto.recompile=true -Dgrails.server.host=${host} -Dgrails.server.port=8081 -Dgeb.env=remote -Dgeb.url=http://hub:4444/wd/hub -Dgeb.browser=browserName=chrome test-app functional: -baseUrl=http://${host}:8081/CukeBooks" }
     }
   },
   'firefox': {
     node {
       unstash name: 'test_sources'
-      withJavaEnv { sh "./grailsw -noreloading -Ddisable.auto.recompile=true -Dgrails.server.host=${host} -Dgrails.server.port=8080 -Dgeb.env=remote -Dgeb.url=http://hub:4444/wd/hub -Dgeb.browser=browserName=firefox test-app functional: -baseUrl=http://${host}:8080/CukeBooks" }
+      withJavaEnv { sh "./grailsw -noreloading -Ddisable.auto.recompile=true -Dgrails.server.host=${host} -Dgrails.server.port=8082 -Dgeb.env=remote -Dgeb.url=http://hub:4444/wd/hub -Dgeb.browser=browserName=firefox test-app functional: -baseUrl=http://${host}:8082/CukeBooks" }
     }
   }
 
