@@ -14,22 +14,16 @@ node {
 
   stage 'Functional Test'
   stash name: 'test_sources'
-  parallel 'phantomjs': {
+  parallel 'chrome': {
     node {
       unstash name: 'test_sources'
-      withJavaEnv { sh "./grailsw -Dgeb.env=phantomjs test-app" }
-    }
-  },
-  'chrome': {
-    node {
-      unstash name: 'test_sources'
-      withJavaEnv { sh "./grailsw -Dgeb.env=chrome test-app" }
+      withJavaEnv { sh "./grailsw -Dgrails.server.host=${InetAddress.localHost.hostName} -Dgeb.env=remote -Dgeb.url=http://hub:4444/wd/hub -Dgeb.browser=browserName=chrome test-app" }
     }
   },
   'firefox': {
     node {
       unstash name: 'test_sources'
-      withJavaEnv { sh "./grailsw -Dgeb.env=firefox test-app" }
+      withJavaEnv { sh "./grailsw -Dgrails.server.host=${InetAddress.localHost.hostName} -Dgeb.env=remote -Dgeb.url=http://hub:4444/wd/hub -Dgeb.browser=browserName=firefox test-app" }
     }
   }
 

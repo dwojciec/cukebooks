@@ -7,6 +7,7 @@ import org.openqa.selenium.remote.DesiredCapabilities
 import io.github.bonigarcia.wdm.ChromeDriverManager
 import io.github.bonigarcia.wdm.MarionetteDriverManager
 import org.openqa.selenium.chrome.ChromeDriver
+import org.openqa.selenium.remote.RemoteWebDriver
 
 import java.util.regex.Pattern
 
@@ -52,6 +53,13 @@ environments {
     driver = {
       ChromeDriverManager.getInstance().setup()
       postProcessDriver.call(new ChromeDriver())
+    }
+  }
+  remote {
+    driver = {
+      def map = System.getProperty('geb.browser', '').split(',').collectEntries { it.split('=') as List }
+      DesiredCapabilities caps = new DesiredCapabilities(map)
+      postProcessDriver.call(new RemoteWebDriver(new URL(System.getProperty('geb.url')), caps))
     }
   }
 }
