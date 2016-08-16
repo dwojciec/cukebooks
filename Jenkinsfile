@@ -20,13 +20,13 @@ node {
   parallel 'chrome': {
     node {
       unstash name: 'test_sources'
-      withJavaEnv { sh "./grailsw -noreloading -Ddisable.auto.recompile=true -Dgrails.server.host=${host} -Dgrails.server.port=8081 -Dgeb.env=remote -Dgeb.url=http://hub:4444/wd/hub -Dgeb.browser=browserName=chrome test-app functional: -baseUrl=http://${host}:8081/CukeBooks" }
+      withJavaEnv { sh "./grailsw -noreloading -Ddisable.auto.recompile=true -Dgrails.server.host=${host} -Dgrails.server.port=10081 -Dgeb.env=remote -Dgeb.url=http://hub:4444/wd/hub -Dgeb.browser=browserName=chrome test-app functional: -baseUrl=http://${host}:10081/CukeBooks" }
     }
   },
   'firefox': {
     node {
       unstash name: 'test_sources'
-      withJavaEnv { sh "./grailsw -noreloading -Ddisable.auto.recompile=true -Dgrails.server.host=${host} -Dgrails.server.port=8082 -Dgeb.env=remote -Dgeb.url=http://hub:4444/wd/hub -Dgeb.browser=browserName=firefox test-app functional: -baseUrl=http://${host}:8082/CukeBooks" }
+      withJavaEnv { sh "./grailsw -noreloading -Ddisable.auto.recompile=true -Dgrails.server.host=${host} -Dgrails.server.port=10082 -Dgeb.env=remote -Dgeb.url=http://hub:4444/wd/hub -Dgeb.browser=browserName=firefox test-app functional: -baseUrl=http://${host}:10082/CukeBooks" }
     }
   }
 
