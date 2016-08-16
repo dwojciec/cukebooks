@@ -2,6 +2,8 @@
 
 // Requires script approval:
 //   method java.util.Collection addAll java.util.Collection
+//   staticMethod java.net.InetAddress getLocalHost
+//   method java.net.InetAddress getHostName
 
 node {
   stage 'Build and Unit Test'
@@ -14,18 +16,12 @@ node {
 
   stage 'Functional Test'
   stash name: 'test_sources'
-  parallel 'chrome': {
+  parallel ['chrome', 'firefox'].collectEntries { browser -> [ browser: {
     node {
       unstash name: 'test_sources'
-      withJavaEnv { sh "./grailsw -Dgrails.server.host=${InetAddress.localHost.hostName} -Dgeb.env=remote -Dgeb.url=http://hub:4444/wd/hub -Dgeb.browser=browserName=chrome test-app" }
+      withJavaEnv { sh "./grailsw -noreloading -Ddisable.auto.recompile=true -Dgrails.server.host=${InetAddress.localHost.hostName} -Dgeb.env=remote -Dgeb.url=http://hub:4444/wd/hub -Dgeb.browser=browserName=${browser} test-app" }
     }
-  },
-  'firefox': {
-    node {
-      unstash name: 'test_sources'
-      withJavaEnv { sh "./grailsw -Dgrails.server.host=${InetAddress.localHost.hostName} -Dgeb.env=remote -Dgeb.url=http://hub:4444/wd/hub -Dgeb.browser=browserName=firefox test-app" }
-    }
-  }
+  } ] }
 
   //only deploy when on master branch
   if (env.BRANCH_NAME == 'master') {
