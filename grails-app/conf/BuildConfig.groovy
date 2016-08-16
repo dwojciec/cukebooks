@@ -21,7 +21,7 @@ grails.project.fork = [
     console: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256]
 ]
 
-def gebVersion = "0.10.0"
+def gebVersion = "0.13.0"
 def seleniumVersion = "2.53.1"
 
 grails.project.dependency.resolver = "maven" // or ivy
@@ -40,7 +40,7 @@ grails.project.dependency.resolution = {
 
         if (System.getenv("MAVEN_REPO")) {
           System.out.println("Adding Maven repo ${System.getenv('MAVEN_REPO')}")
-          maven { url { System.getenv("MAVEN_REPO") } } 
+          maven { url { System.getenv("MAVEN_REPO") } }
         }
         grailsPlugins()
         grailsHome()
