@@ -19,13 +19,13 @@ node {
   parallel 'chrome': {
     node {
       unstash name: 'test_sources'
-      withJavaEnv { sh "./grailsw -noreloading -Ddisable.auto.recompile=true -Dgrails.server.host=${InetAddress.localHost.hostName} -Dgeb.env=remote -Dgeb.url=http://hub:4444/wd/hub -Dgeb.browser=browserName=chrome test-app" }
+      withJavaEnv { sh "./grailsw -noreloading -Ddisable.auto.recompile=true -Dgrails.server.host=${InetAddress.localHost.hostName} -Dgrails.server.port=8080 -Dgeb.env=remote -Dgeb.url=http://hub:4444/wd/hub -Dgeb.browser=browserName=chrome test-app" }
     }
   },
   'firefox': {
     node {
       unstash name: 'test_sources'
-      withJavaEnv { sh "./grailsw -noreloading -Ddisable.auto.recompile=true -Dgrails.server.host=${InetAddress.localHost.hostName} -Dgeb.env=remote -Dgeb.url=http://hub:4444/wd/hub -Dgeb.browser=browserName=firefox test-app" }
+      withJavaEnv { sh "./grailsw -noreloading -Ddisable.auto.recompile=true -Dgrails.server.host=${InetAddress.localHost.hostName} -Dgrails.server.port=8080 -Dgeb.env=remote -Dgeb.url=http://hub:4444/wd/hub -Dgeb.browser=browserName=firefox test-app" }
     }
   }
 
